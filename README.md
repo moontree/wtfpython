@@ -361,6 +361,19 @@ for i, some_dict[i] in enumerate(some_string):
   **💡 Explanation:**
 
   - The assignment statement `i = 10` never affects the iterations of the loop because of the way for loops work in Python. Before the beginning of every iteration, the next item provided by the iterator (`range(4)` this case) is unpacked and assigned the target list variables (`i` in this case).
+  - You can understand this better by the following code:
+  ```py
+  for i in range(4):
+      print i, id(i)
+  ```
+  output is :
+  ```
+  0 140627337576592
+  1 140627337576568
+  2 140627337576544
+  3 140627337576520
+  ```
+  which means each i is different variable.
 
 * The `enumerate(some_string)` function yields a new value `i` (A counter going up) and a character from the `some_string` in each iteration. It then sets the (just assigned) `i` key of the dictionary `some_dict` to that character. The unrolling of the loop can be simplified as:
   ```py
